@@ -37,7 +37,6 @@ public class TextDocument {
         return buffer.length();
     }
 
-    /** Кількість рядків; порожній документ має 1 рядок. */
     public int lineCount() {
         int count = 1;
         for (int i = 0; i < buffer.length(); i++) {
@@ -48,7 +47,6 @@ public class TextDocument {
         return count;
     }
 
-    /** Рядки від fromLine до toLine включно (нумерація з 1). */
     public String getLines(int fromLine, int toLine) {
         int total = lineCount();
         if (fromLine < 1 || toLine > total || fromLine > toLine) {
@@ -58,7 +56,6 @@ public class TextDocument {
         return String.join("\n", List.of(lines).subList(fromLine - 1, toLine));
     }
 
-    /** Вставляє текст; некоректна позиція -> IndexOutOfBoundsException без зміни тексту. */
     public void insert(int position, String text) {
         Objects.requireNonNull(text, "text");
         if (position < 0 || position > buffer.length()) {
@@ -68,7 +65,6 @@ public class TextDocument {
         notifyObservers();
     }
 
-    /** Видаляє діапазон [start, end) і повертає видалений фрагмент. */
     public String delete(int start, int end) {
         if (start < 0 || end > buffer.length() || start > end) {
             throw new IndexOutOfBoundsException("Range " + start + ".." + end + " out of 0.." + buffer.length());
