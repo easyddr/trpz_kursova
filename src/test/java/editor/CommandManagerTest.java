@@ -1,9 +1,6 @@
 package editor;
 
-import com.example.CommandManager;
-import com.example.DeleteTextCommand;
-import com.example.InsertTextCommand;
-import com.example.TextDocument;
+import com.example.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

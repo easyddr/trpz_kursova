@@ -1,6 +1,7 @@
 package editor;
 
 import com.example.EncodingService;
+import com.example.Utf8Strategy;
 import org.junit.jupiter.api.Test;
 
 import java.io.UnsupportedEncodingException;
