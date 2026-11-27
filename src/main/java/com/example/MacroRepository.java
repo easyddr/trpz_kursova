@@ -62,13 +62,13 @@ public class MacroRepository {
         }
     }
 
-    static String toJson(MacroCommand macro) {
+    public static String toJson(MacroCommand macro) {
         List<Step> steps = new ArrayList<>();
         flatten(macro, steps);
         return GSON.toJson(steps);
     }
 
-    static MacroCommand fromJson(String name, String json, TextDocument document) {
+    public static MacroCommand fromJson(String name, String json, TextDocument document) {
         List<Step> steps = GSON.fromJson(json, new TypeToken<List<Step>>() { }.getType());
         List<Command> commands = new ArrayList<>();
         for (Step step : steps) {
